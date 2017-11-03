@@ -15,4 +15,8 @@ exercise.addSetup(function (mode, cb) {
   })
 })
 
+exercise.addCleanup(function (mode, passed, cb) {
+  this.server.close(callback)
+})
+
 module.exports = exercise
