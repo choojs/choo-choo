@@ -24,16 +24,17 @@ exercise.addSetup(function (mode, cb) {
   })
 })
 
-exercise.addProcessor(function (mode, cb) {
+exercise.addVerifyProcessor(function (mode, cb) {
   got(`http://localhost:${this.port}`).then(res => {
     log.pass(this.__('pass.response'))
+
     if (isHtml(res.body)) {
       log.pass(this.__('pass.content_ok'))
       cb()
-    } else {
-      log.fail(this.__('fail.not_html'))
-      cb(new Error(this.__('fail.not_html')))
     }
+
+    log.fail(this.__('fail.not_html'))
+    cb(new Error(this.__('fail.not_html')))
   })
 })
 
