@@ -9,21 +9,30 @@ const del = require('del')
 const path = require('path')
 
 if (args._[0] && args._[0].toLowerCase() === 'install') {
+  let locale
+  if (args.l) {
+    locale = args.l
+  } else {
+    locale = 'en'
+  }
+
+  const i18n = require('i18n-core')(require(`../i18n/${locale}.json`))
+
   if (!args._[1] || typeof args._[1] !== 'string') {
-    console.log(chalk`{red ${figures.cross} Please provide a path!}`)
+    console.log(chalk`{red ${figures.cross} ${i18n.__('installer.no_path')}}`)
     process.exit(1)
   }
 
   const fullpath = path.join(process.cwd(), args._[1])
-  console.log(chalk`{yellow ${figures.play} Downloading starter kit into ${fullpath}...}`)
+  console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_1', {path: fullpath})}}`)
   download('https://github.com/pup/choo-choo-starter/archive/master.zip', '.').then(() => {
-    console.log(chalk`{yellow ${figures.play} Unzipping downloaded archive...}`)
+    console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_2')}}`)
     return decompress('./choo-choo-starter-master.zip', fullpath, {strip:1})
   }).then(() => {
-    console.log(chalk`{yellow ${figures.play} Removing leftover .zip file...}`)
+    console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_3')}}`)
     return del('./choo-choo-starter-master.zip')
   }).then(() => {
-    console.log(chalk`{green ${figures.tick} All done!}`)
+    console.log(chalk`{green ${figures.tick} ${i18n.__('installer.done')}}`)
   })
 } else {
   require('../index').execute(process.argv.slice(2))

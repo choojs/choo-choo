@@ -30,6 +30,7 @@
     "figures": "2.0.0",
     "get-port": "3.2.0",
     "got": "7.1.0",
+    "i18n-core": "3.2.0",
     "is-html": "1.1.0",
     "minimist": "1.2.0",
     "workshopper-adventure": "6.0.3",

@@ -14,5 +14,12 @@
         "started": "Started your server! URL: http://localhost:{{port}}"
       }
     }
+  },
+  "installer": {
+    "no_path": "Please provide a path!",
+    "progress_1": "Downloading starter kit to {{path}}...",
+    "progress_2": "Unzipping downloaded archive...",
+    "progress_3": "Removing leftover .zip file...",
+    "done": "All done!"
   }
 }
