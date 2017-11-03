@@ -19,7 +19,8 @@ exercise.addSetup(function (mode, cb) {
     this.port = port
     this.server.listen(port, () => {
       log.info(this.__('setup.started', {port: this.port}))
-      setTimeout(cb, 1000)
+      if (mode !== 'run')
+        setTimeout(cb, 1000)
     })
   })
 })
