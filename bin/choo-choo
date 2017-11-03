@@ -1,3 +1,30 @@
 #!/usr/bin/env node
 
-require('../index').execute(process.argv.slice(2))
+const download = require('download')
+const args = require('minimist')(process.argv.slice(2))
+const figures = require('figures')
+const chalk = require('chalk')
+const decompress = require('decompress')
+const del = require('del')
+const path = require('path')
+
+if (args._[0].toLowerCase() === 'install') {
+  if (!args._[1] || typeof args._[1] !== 'string') {
+    console.log(chalk`{red ${figures.cross} Please provide a path!}`)
+    process.exit(1)
+  }
+
+  const fullpath = path.join(process.cwd(), args._[1])
+  console.log(chalk`{yellow ${figures.play} Downloading starter kit into ${fullpath}...}`)
+  download('https://github.com/pup/choo-choo-starter/archive/master.zip', '.').then(() => {
+    console.log(chalk`{yellow ${figures.play} Unzipping downloaded archive...}`)
+    return decompress('./choo-choo-starter-master.zip', fullpath, {strip:1})
+  }).then(() => {
+    console.log(chalk`{yellow ${figures.play} Removing leftover .zip file...}`)
+    return del('./choo-choo-starter-master.zip')
+  }).then(() => {
+    console.log(chalk`{green ${figures.tick} All done!}`)
+  })
+} else {
+  require('../index').execute(process.argv.slice(2))
+}

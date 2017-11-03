@@ -23,11 +23,15 @@
   "dependencies": {
     "browserify-middleware": "8.0.0",
     "chalk": "2.3.0",
+    "decompress": "4.2.0",
+    "del": "3.0.0",
+    "download": "6.2.5",
     "express": "4.16.2",
     "figures": "2.0.0",
     "get-port": "3.2.0",
     "got": "7.1.0",
     "is-html": "1.1.0",
+    "minimist": "1.2.0",
     "workshopper-adventure": "6.0.3",
     "workshopper-exercise": "3.0.1"
   },
