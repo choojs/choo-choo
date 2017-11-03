@@ -22,7 +22,12 @@
   "homepage": "https://github.com/pup/choo-choo#readme",
   "dependencies": {
     "browserify-middleware": "8.0.0",
+    "chalk": "2.3.0",
     "express": "4.16.2",
+    "figures": "2.0.0",
+    "get-port": "3.2.0",
+    "got": "7.1.0",
+    "is-html": "1.1.0",
     "workshopper-adventure": "6.0.3",
     "workshopper-exercise": "3.0.1"
   },
