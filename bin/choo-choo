@@ -9,12 +9,7 @@ const del = require('del')
 const path = require('path')
 
 if (args._[0] && args._[0].toLowerCase() === 'install') {
-  let locale
-  if (args.l) {
-    locale = args.l
-  } else {
-    locale = 'en'
-  }
+  let locale = args.l ? args.l : 'en'
 
   const i18n = require('i18n-core')(require(`../i18n/${locale}.json`))
 
