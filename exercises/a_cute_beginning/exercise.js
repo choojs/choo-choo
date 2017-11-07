@@ -9,7 +9,7 @@ exercise = filecheck(exercise)
 exercise = bundleServer(exercise)
 
 exercise.addVerifyProcessor(function (cb) {
-  got(`http://localhost:${this.port}`).then(res => {
+  got(`http://localhost:${this.bundleServerPort}`).then(res => {
     log.pass(this.__('pass.response'))
 
     if (isHtml(res.body)) {
