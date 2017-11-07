@@ -8,11 +8,13 @@ const decompress = require('decompress')
 const del = require('del')
 const path = require('path')
 
+// First, check if the correct arguments to launch the installer are given
 if (args._[0] && args._[0].toLowerCase() === 'install') {
   let locale = args.l || 'en'
 
   const i18n = require('i18n-core')(require(`../i18n/${locale}.json`))
 
+  // Fail if no path to install to was provided
   if (!args._[1] || typeof args._[1] !== 'string') {
     console.log(chalk`{red ${figures.cross} ${i18n.__('installer.no_path')}}`)
     process.exit(1)
@@ -20,15 +22,22 @@ if (args._[0] && args._[0].toLowerCase() === 'install') {
 
   const fullpath = path.join(process.cwd(), args._[1])
   console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_1', {path: fullpath})}}`)
+
+  // Download the file...
   download('https://github.com/pup/choo-choo-starter/archive/master.zip', '.').then(() => {
     console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_2')}}`)
+
+    // ...then unzip it...
     return decompress('./choo-choo-starter-master.zip', fullpath, {strip:1})
   }).then(() => {
     console.log(chalk`{yellow ${figures.play} ${i18n.__('installer.progress_3')}}`)
+
+    // ...then finally delete the leftover zip archive
     return del('./choo-choo-starter-master.zip')
   }).then(() => {
     console.log(chalk`{green ${figures.tick} ${i18n.__('installer.done')}}`)
   })
 } else {
+  // If the installer didn't launch, just run the workshopper as normal
   require('../index').execute(process.argv.slice(2))
 }
