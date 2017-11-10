@@ -49,7 +49,7 @@ Here's a little help as to what a starter template could look like:
 ```
 const choo = require('choo')
 const html = require('choo/html')
-const validate = require('choo-choo/validate')
+const verify = require('choo-choo/verify')
 
 const app = choo()
 
@@ -66,7 +66,7 @@ app.mount('body')
 ```
 
 Let's go through this. First, we require the Choo framework and a helper that
-lets us construct HTML from JS template strings, plus the validation function
+lets us construct HTML from JS template strings, plus the verification function
 you're going to use later on. We initialize our app, and define a function that
 acts as a _view_. View functions are passed two arguments, the global state and
 a function used to emit events. This function returns a string of HTML.
@@ -101,14 +101,14 @@ app.use(function (state, emitter) {
 ```
 
 `app.use` calls are the __only place__ where you can modify the state. You need
-to call `validate` in an event listener. `validate` takes one argument, which is
+to call `verify` in an event listener. `verify` takes one argument, which is
 the entire state of your application, meaning you'd call it like this:
 
 ```
-const validate = require('choo-choo/validate')
+const verify = require('choo-choo/verify')
 
 // omit other stuff
-validate(state)
+verify(state)
 // omit more stuff
 ```
 
