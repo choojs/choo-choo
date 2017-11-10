@@ -73,7 +73,23 @@ a function used to emit events. This function returns a string of HTML.
 Then, we use the `app.route` function to add this view to a route, in our case,
 the root route. Finally, we mount our entire app to the HTML body tag.
 
-In order to define event listeners, you need to call `app.use`:
+To make a button react to clicking, just attach a DOM event name as an attribute:
+
+```
+function onButtonClick () {
+  // do some stuff
+}
+
+function view (state, emit) {
+  return html`
+    <body>
+      <button onclick=${onButtonClick}>Test!</button>
+    </body>
+  `
+}
+```
+
+In order to define global event listeners, you need to call `app.use`:
 
 ```
 app.use(function (state, emitter) {
