@@ -13,6 +13,7 @@
       "setup": {
         "starting": "Starting your server...",
         "started": "Started your server! URL: http://localhost:{{port}}",
+        "running_verification": "Your app is live and running!",
         "waiting_verification": "Waiting for verification..."
       }
     }

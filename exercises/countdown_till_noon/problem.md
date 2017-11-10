@@ -41,7 +41,8 @@ Choo uses these for its HTML templates.
 To get a feel of the basic components of a Choo app, you will build a simple
 app that exposes a HTML button. After this button was clicked 5 times, you'll
 send a verification request to the workshopper, which will verify that the
-button was indeed clicked 5 times.
+button was indeed clicked 5 times. You will store the amount the button was
+clicked as a number in the global state, under the name `clicked`.
 
 Here's a little help as to what a starter template could look like:
 

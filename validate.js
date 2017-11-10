@@ -1,9 +1,7 @@
-module.exports = function () {
+module.exports = function (state) {
   fetch('http://localhost:8574/response', {
     method: 'POST',
-    body: JSON.stringify({
-      passed: true
-    }),
+    body: JSON.stringify(state),
     mode: 'no-cors'
   }).catch(err => {
     console.error(err)

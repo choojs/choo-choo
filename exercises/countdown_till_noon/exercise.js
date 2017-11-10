@@ -8,10 +8,10 @@ exercise = filecheck(exercise)
 
 exercise = bundleServer(exercise)
 
-resServer(exercise, function (cb) {
+resServer(exercise, function (mode, cb) {
   this.resServer.post('/response', (req, res) => {
     res.end()
-    if (req.body.passed === true) {
+    if (req.body.clicked === 5 && mode === 'verify') {
       this.spinner.succeed(this.__('pass.verification_ok'))
       cb()
     }

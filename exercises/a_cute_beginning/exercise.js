@@ -30,4 +30,7 @@ exercise.addVerifyProcessor(function (cb) {
   })
 })
 
+// Don't exit when ran with `choo-choo run`
+exercise.addRunProcessor(function (cb) {})
+
 module.exports = exercise
