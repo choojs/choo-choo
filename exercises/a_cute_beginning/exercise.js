@@ -3,7 +3,7 @@ const filecheck = require('workshopper-exercise/filecheck')
 const isHtml = require('is-html')
 const got = require('got')
 const log = require('../../lib/console')
-const bundleServer = require('../../lib/bundleServer')
+const bundleServer = require('../../lib/bundle_server')
 
 // Check if the file passed in as argument exists...
 exercise = filecheck(exercise)

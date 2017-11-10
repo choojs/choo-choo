@@ -4,8 +4,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const ora = require('ora')
 const log = require('../../lib/console')
-const bundleServer = require('../../lib/bundleServer')
-const resServer = require('../../lib/resServer')
+const bundleServer = require('../../lib/bundle_server')
+const resServer = require('../../lib/res_server')
 
 exercise = filecheck(exercise)
 
