@@ -1,6 +1,5 @@
 let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
-const log = require('../../lib/console')
 const bundleServer = require('../../lib/bundle_server')
 const resServer = require('../../lib/res_server')
 

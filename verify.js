@@ -1,5 +1,5 @@
 module.exports = function (state) {
-  fetch('http://localhost:8574/response', {
+  window.fetch('http://localhost:8574/response', {
     method: 'POST',
     body: JSON.stringify(state),
     mode: 'no-cors'

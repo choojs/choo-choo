@@ -19,7 +19,7 @@ function indexView (state, emit) {
   function onClick () {
     emit('inc')
   }
-  
+
   return html`
     <body>
       <button onclick=${onClick}>click me!</button>
