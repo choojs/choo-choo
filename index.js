@@ -8,7 +8,8 @@ const cc = WA({
 })
 
 cc.addAll([
-  'a cute beginning'
+  'a cute beginning',
+  'countdown till noon'
 ])
 
 module.exports = cc

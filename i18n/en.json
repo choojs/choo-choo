@@ -4,14 +4,16 @@
     "exercise": {
       "pass": {
         "response": "Got a response from your file!",
-        "content_ok": "Your content is valid! Good job!"
+        "content_ok": "Your content is valid! Good job!",
+        "verification_ok": "Verification complete!"
       },
       "fail": {
         "not_html": "Your server doesn't return valid HTML!"
       },
       "setup": {
         "starting": "Starting your server...",
-        "started": "Started your server! URL: http://localhost:{{port}}"
+        "started": "Started your server! URL: http://localhost:{{port}}",
+        "waiting_verification": "Waiting for verification..."
       }
     }
   },
