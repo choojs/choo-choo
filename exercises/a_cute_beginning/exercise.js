@@ -16,14 +16,14 @@ exercise = bundleServer(exercise)
 // been successfully downloaded
 exercise.addVerifyProcessor(function (cb) {
   got(`http://localhost:${this.bundleServerPort}`).then(res => {
-    log.pass(this.__('pass.response'))
+    log.pass(this.__('response'))
 
     if (isHtml(res.body)) {
-      log.pass(this.__('pass.content_ok'))
+      log.pass(this.__('content_ok'))
       cb()
     } else {
-      log.fail(this.__('fail.not_html'))
-      cb(new Error(this.__('fail.not_html')))
+      log.fail(this.__('not_html'))
+      cb(new Error(this.__('not_html')))
     }
   }).catch(err => {
     console.error(err)
