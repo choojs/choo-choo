@@ -6,9 +6,9 @@ exercise = bundleServer(exercise)
 
 resServer(exercise, function (mode, cb) {
   this.resServer.post('/response', (req, res) => {
-    res.end()
     if (req.body.totalClicks === 5 && mode === 'verify') {
       this.spinner.succeed(this.__('verification.ok'))
+      res.end()
       cb()
     }
   })
