@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/pup/choo-choo#readme",
   "dependencies": {
+    "bankai": "9.0.0-rc10",
     "body-parser": "1.18.2",
-    "browserify-middleware": "8.0.0",
     "chalk": "2.3.0",
     "decompress": "4.2.0",
     "del": "3.0.0",
