@@ -20,7 +20,7 @@ of the data your app cares about. In the example case of a memory card game
 app, this would be which cards the player has gotten wrong or right, what the
 player's score is, maybe a timer, and so forth. The state should only be
 modified in the event listeners, which is why you would use the state in the
-first place - to decouple the state from your app's templates.
+first place - to decouple it from your app's templates.
 
 Speaking of templates, Choo uses JavaScript template strings, which are
 essentially multiline strings that support variable interpolation. They look
@@ -38,83 +38,44 @@ Choo uses these for its HTML templates.
 
 ## The challenge
 
-To get a feel of the basic components of a Choo app, you will build a simple
-app that exposes a HTML button. After this button was clicked 5 times, you'll
-send a verification request to the workshopper, which will verify that the
-button was indeed clicked 5 times. You will store the amount the button was
-clicked as a number in the global state, under the name `clicked`.
+If you run `choo-choo run`, you will get a link in your console. If you paste
+this link into a browser, you can see that there's a little example application
+already set up for you! It's a simple counter that increases when you press the
+big button. We'll use this to check when the button has been clicked exactly
+five times, at which point we'll make the exercise pass.
 
-Here's a little help as to what a starter template could look like:
-
-```
-const choo = require('choo')
-const html = require('choo/html')
-const verify = require('choo-choo/verify')
-
-const app = choo()
-
-function indexView (state, emit) {
-  return html`
-    <body>
-      Hello world!
-    </body>
-  `
-}
-
-app.route('/', indexView)
-app.mount('body')
-```
-
-Let's go through this. First, we require the Choo framework and a helper that
-lets us construct HTML from JS template strings, plus the verification function
-you're going to use later on. We initialize our app, and define a function that
-acts as a _view_. View functions are passed two arguments, the global state and
-a function used to emit events. This function returns a string of HTML.
-
-Then, we use the `app.route` function to add this view to a route, in our case,
-the root route. Finally, we mount our entire app to the HTML body tag.
-
-To make a button react to clicking, just attach a DOM event name as an attribute:
+The directory structure of your project is split into different parts:
 
 ```
-function onButtonClick () {
-  // do some stuff
-}
-
-function view (state, emit) {
-  return html`
-    <body>
-      <button onclick=${onButtonClick}>Test!</button>
-    </body>
-  `
-}
+├── assets -- stuff that should be served statically, e.g. image files and so on
+├── views -- a view file returns html, takes the current state and can emit events
+│   ├── 404.js -- used for any route that doesn't match
+│   └── main.js -- used when we visit the root of our site
+├── README.md -- useful for if you want to put your project on GitHub
+├── index.js -- the main file
+├── manifest.json -- irrelevant for now, useful for offline capabilities
+├── package-lock.json -- lockfile for npm
+├── package.json -- it's a package.json!
+├── store.js -- contains all event listeners
+└── sw.js -- used for service workers, irrelevant right now
 ```
 
-In order to define global event listeners, you need to call `app.use`:
+The most interesting parts right now are the `views/` folder and the `store.js`
+file. Views fire events, and they're being handled by the code in `store.js`.
+So, you're going to have to modify the code in `store.js`, since code in there
+gets called every time you press the button.
 
-```
-app.use(function (state, emitter) {
-  emitter.on('my_event', function () {
-    // do something cool
-  })
-})
-```
+In order to pass this exercise, use the `verify` method provided by
+`choo-choo`. First, require it, and then just call it with the app's state:
 
-`app.use` calls are the __only place__ where you can modify the state. You need
-to call `verify` in an event listener. `verify` takes one argument, which is
-the entire state of your application, meaning you'd call it like this:
+```js
+var verify = require('choo-choo/verify')
 
-```
-const verify = require('choo-choo/verify')
-
-// omit other stuff
+// ...
 verify(state)
-// omit more stuff
+// ...
 ```
 
-## How to test your program
+Good luck!
 
-Running `choo-choo run yourFile.js` will run a server where your app will be
-compiled and running. If you want to verify your solution, run
-`choo-choo run verify yourFile.js`, then access the web server, click on your
-button (5 times!) and hope that it works!
+(Tip: you just have to add one `if`-statement in the `store.js` file!)
