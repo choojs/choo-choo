@@ -11,18 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pup/choo-choo.git"
+    "url": "git+https://github.com/choojs/choo-choo.git"
   },
   "keywords": [
     "choo",
-    "workshopper"
+    "workshopper",
+    "nodeschool"
   ],
   "author": "Olivia Hugger <olivia@fastmail.com>",
   "license": "AGPL-3.0+",
   "bugs": {
-    "url": "https://github.com/pup/choo-choo/issues"
+    "url": "https://github.com/choojs/choo-choo/issues"
   },
-  "homepage": "https://github.com/pup/choo-choo#readme",
+  "homepage": "https://github.com/choojs/choo-choo#readme",
   "dependencies": {
     "bankai": "9.0.0-rc10",
     "body-parser": "1.18.2",
