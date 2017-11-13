@@ -5,21 +5,25 @@ breeze through these exercises!
 
 The good news is: If you have `choo-choo` installed globally, then you don't
 need anything else! (there's no bad news, too.) We've built a starter kit that
-helps you get going in no time, and it's all built into `choo-choo`.
+helps you get going in no time, and you can use it thanks to npm!
 
 To install the starter kit, just type:
 
 ```sh
-choo-choo install <path>
+npx create-choo-app <path>
 ```
 
 Where path is the directory you want to install the kit to. After it's set up,
-move into the directory and install the dependencies:
+move into the directory:
 
 ```sh
 cd <path>
-npm install
 ```
 
-Then, open your favorite editor and look at the files, particularly the
-`welcome.js` file in order to finish this exercise!
+Then, you can open your editor and have a look at the files. Don't worry if
+not everything is clear at first, that what we're going to be working on in the
+next exercises. To pass this exercise, just run:
+
+```sh
+choo-choo verify
+```
