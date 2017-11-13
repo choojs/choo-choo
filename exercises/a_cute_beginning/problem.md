@@ -4,8 +4,10 @@ we're going to set up your local environment so that you can hopefully
 breeze through these exercises!
 
 The good news is: If you have `choo-choo` installed globally, then you don't
-need anything else! (there's no bad news, too.) We've built a starter kit that
-helps you get going in no time, and you can use it thanks to npm!
+need anything else! We've built a starter kit that helps you get going in no
+time, and you can use it thanks to npm!
+
+(There's no bad news)
 
 To install the starter kit, just type:
 
