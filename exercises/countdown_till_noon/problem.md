@@ -51,18 +51,19 @@ The directory structure of your project is split into different parts:
 ├── views -- a view file returns html, takes the current state and can emit events
 │   ├── 404.js -- used for any route that doesn't match
 │   └── main.js -- used when we visit the root of our site
+├── stores -- contains all event listeners ("stores")
+|   └── clicks.js -- contains event listeners for the sample application
 ├── README.md -- useful for if you want to put your project on GitHub
 ├── index.js -- the main file
 ├── manifest.json -- irrelevant for now, useful for offline capabilities
 ├── package-lock.json -- lockfile for npm
 ├── package.json -- it's a package.json!
-├── store.js -- contains all event listeners
 └── sw.js -- used for service workers, irrelevant right now
 ```
 
-The most interesting parts right now are the `views/` folder and the `store.js`
-file. Views fire events, and they're being handled by the code in `store.js`.
-So, you're going to have to modify the code in `store.js`, since code in there
+The most interesting parts right now are the `views/` folder and the `stores/clicks.js`
+file. Views fire events, and they're being handled by the code in `stores/clicks.js`.
+So, you're going to have to modify the code in `stores/clicks.js`, since code in there
 gets called every time you press the button.
 
 In order to pass this exercise, use the `verify` method provided by
@@ -78,4 +79,4 @@ verify(state)
 
 Good luck!
 
-(Tip: you just have to add one `if`-statement in the `store.js` file!)
+(Tip: you just have to add one `if`-statement in the `stores/clicks.js` file!)
