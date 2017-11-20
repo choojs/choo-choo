@@ -67,7 +67,13 @@ So, you're going to have to modify the code in `stores/clicks.js`, since code in
 gets called every time you press the button.
 
 In order to pass this exercise, use the `verify` method provided by
-`choo-choo`. First, require it, and then just call it with the app's state:
+`choo-choo`. First, install `choo-choo` as a dependency into your app:
+
+```sh
+npm install choo-choo
+```
+
+Then, require the `verify` method and pass it your app's state:
 
 ```js
 var verify = require('choo-choo/verify')
