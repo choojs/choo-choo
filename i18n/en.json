@@ -9,7 +9,6 @@
   },
   "common": {
     "exercise": {
-      "starting": "Starting your server...",
       "started": "Started your server! URL: http://localhost:{{suffix}}",
       "verification": {
         "ok": "Verification complete!",
