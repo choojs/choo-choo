@@ -1,6 +1,6 @@
 {
   "name": "choo-choo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "learn choo on the terminal!",
   "main": "index.js",
   "bin": {
