@@ -3,7 +3,7 @@ const WA = require('workshopper-adventure')
 const cc = WA({
   appDir: __dirname,
   languages: ['en'],
-  header: require('workshopper-adventure/default/header'),
+  header: require('./lib/header'),
   footer: require('workshopper-adventure/default/footer')
 })
 
