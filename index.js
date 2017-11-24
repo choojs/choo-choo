@@ -4,7 +4,7 @@ const cc = WA({
   appDir: __dirname,
   languages: ['en'],
   header: require('./lib/header'),
-  footer: require('workshopper-adventure/default/footer')
+  footer: require('./lib/footer')
 })
 
 cc.addAll([
